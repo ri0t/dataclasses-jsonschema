@@ -27,8 +27,8 @@ classifiers = [
     "Intended Audience :: Developers" ]
 keywords = [ "dataclasses objects generate jsonschema" ]
 dependencies = [
-    "python-dateutil",
     "jsonschema",
+    'python-dateutil;python_version<"3.10"',
     'typing_extensions;python_version<"3.8"',
     'dataclasses;python_version<"3.7"',
 ]
