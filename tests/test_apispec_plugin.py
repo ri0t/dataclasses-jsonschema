@@ -105,7 +105,6 @@ EXPECTED_API_SPEC = {
 }
 
 
-@pytest.mark.last
 def test_api_spec_schema():
     @dataclass
     class Category(JsonSchemaMixin):

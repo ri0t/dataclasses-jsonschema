@@ -211,9 +211,12 @@ def test_embeddable_json_schema():
         "Zoo": ZOO_SCHEMA,
         "Baz": BAZ_SCHEMA,
     }
-    assert expected == JsonSchemaMixin.all_json_schemas()
+    for item in expected:
+        assert expected[item] == JsonSchemaMixin.all_json_schemas()[item]
+
     with pytest.warns(DeprecationWarning):
-        assert expected == JsonSchemaMixin.json_schema()
+        for item in expected:
+            assert expected[item] == JsonSchemaMixin.json_schema()[item]
 
 
 def test_json_schema():

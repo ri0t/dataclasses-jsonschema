@@ -42,7 +42,6 @@ dev = [
     "flask",
     "isort",
     "mypy",
-    "pytest-ordering",
     "pytest",
     "tox-gh-actions",
     "tox",
