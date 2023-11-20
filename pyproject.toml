@@ -1,6 +1,76 @@
+[build-system]
+requires = ["setuptools>=61.0", "setuptools_scm>=8", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dataclasses-jsonschema"
+authors = [
+    { name="Simon Knibbs" },
+    { name="Heiko 'riot' Weinen", email="riot@hackerfleet.eu" },
+]
+description = "JSON schema generation from dataclasses"
+readme = "README.rst"
+license = { file="LICENSE" }
+dynamic = ["version"]
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries",
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers" ]
+keywords = [ "dataclasses objects generate jsonschema" ]
+dependencies = [
+    "python-dateutil",
+    "jsonschema",
+    'typing_extensions;python_version<"3.8"',
+    'dataclasses;python_version<"3.7"',
+]
+
+[project.optional-dependencies]
+dev = [
+    "apispec_webframeworks",
+    "apispec[yaml]",
+    "black==22.8.0",
+    "flake8",
+    "flask",
+    "isort",
+    "mypy",
+    "pytest-ordering",
+    "pytest",
+    "tox-gh-actions",
+    "tox",
+    "types-python-dateutil",
+]
+apispec = ["apispec"]
+fast-validation = ["fastjsonschema"]
+fast-dateparsing = ["ciso8601"]
+fast-uuid = ["fastuuid"]
+
+[project.urls]
+homepage = "https://github.com/ri0t/dataclasses-jsonschema"
+source = "https://github.com/ri0t/dataclasses-jsonschema"
+changelog = "https://github.com/ri0t/dataclasses-jsonschema/blob/master/CHANGELOG.md"
+"Bug Tracker" = "https://github.com/ri0t/dataclasses-jsonschema/issues"
+
+[tool.setuptools_scm]
+
 [tool.black]
 line-length = 120
 
 [tool.isort]
 profile = "black"
 multi_line_output = 3
+
+[tool.flake8]
+max-line-length = 120
+ignore = "E203, W503"  # https://github.com/PyCQA/pycodestyle/issues/373
+
+[tool.mypy]
+ignore_missing_imports = true
